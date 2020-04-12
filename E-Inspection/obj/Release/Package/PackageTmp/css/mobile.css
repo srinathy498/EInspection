@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+
+}
+
+table thead {
+    display: none;
+
+}
+
+table tbody tr {
+    box-shadow: 0 0 0.5em #666666;
+    border: none;
+
+    display: block; 
+
+    margin: 1em;
+}
+
+table tbody tr td {
+    padding: 0.4em 1em;
+    text-align: right;
+
+    display: block;
+
+    width: block;
+
+}
+
+table tbody tr td[data-label="#"] {
+    display: none;
+
+}
+
+table tbody tr td[data-label]:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+table tbody tr td.numeric {
+    text-align: left;
+
+}
+
