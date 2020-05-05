@@ -76,6 +76,15 @@ namespace E_Inspection.Forms {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtJobId;
         
         /// <summary>
+        /// ddlCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlCompany;
+        
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

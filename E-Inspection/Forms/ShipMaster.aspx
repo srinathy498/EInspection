@@ -35,18 +35,20 @@
                     },
                     { "data": "Name" },
                     { "data": "Type" },
-                    { "data": "ContactNumber" }
+                    { "data": "IMONo" },
+                    { "data": "DWT" }
                 ]
             });
             $('#Shiptable').on('click', 'tbody .edit_btn', function () {
                 var data_row = dt.row($(this).closest('tr')).data();
                 if (data_row) {
                     $('#MainContent_txtShipID').val(data_row.ShipId);
-                    $('#MainContent_txtName').val(data_row.Name);
-                    $('#MainContent_txtType').val(data_row.Type);
+                    $('#MainContent_txtName').val(data_row.Name);                    
                     $('#MainContent_txtContact').val(data_row.ContactNumber);
                     document.getElementById("MainContent_ddlManager").value = data_row.SMangerId;
-
+                    document.getElementById("MainContent_ddlshiptype").value = data_row.Type;
+                    $('#MainContent_txtIMONo').val(data_row.IMONo);
+                    $('#MainContent_txtDWT').val(data_row.DWT);
                     $('#MainContent_txtAddress').val(data_row.Address);
                     $('#MainContent_txtCity').val(data_row.City);
                     $('#MainContent_txtDiscription').val(data_row.Discription);
@@ -73,8 +75,9 @@
           <div class="row">            
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
+                  <h4 class="card-title">SHIP</h4>
                 <div class="card-body">
-                  <h4 class="card-title">SHIP</h4> <br />                 
+                   <br />                 
                     <label class="col-form-label text-danger" id="lblerror" runat="server"></label>
 
                     <div class="row">
@@ -95,32 +98,19 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Ship Type</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="txtType" runat="server" placeholder="Ship Type" required="required">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Manager</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" id="ddlManager" runat="server" required="required">                                        
+                            <%--<input type="text" class="form-control" id="txtType" runat="server" placeholder="Ship Type" required="required">--%>
+                              <select class="form-control" id="ddlshiptype" runat="server" required="required"> 
+                                  <option value="Petroluem">Petroluem</option> 
+                                   <option value="Chemical">Chemical</option> 
+                                   <option value="LPG">LPG</option> 
+                                   <option value="LNG">LNG</option> 
+                                  <option value="Barge International">Barge International</option>                                          
                     </select>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="txtAddress" runat="server" placeholder="Address" required="required">
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                    <div class="row">
+                    <div class="row hide">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Contact</label>
@@ -141,6 +131,43 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">IMO No</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="txtIMONo" runat="server" placeholder="IMO No" required="required">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">DWT</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="txtDWT" placeholder="DWT" runat="server" required="required">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Manager</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" id="ddlManager" runat="server" required="required">                                        
+                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 hide">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Address</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="txtAddress" runat="server" placeholder="Address" required="required">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row hide">
+                      <div class="col-md-6">
+                        <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Discription</label>
                           <div class="col-sm-9">
                             <textarea class="form-control" id="txtDiscription" rows="4" runat="server"></textarea>
@@ -158,78 +185,7 @@
                 </div>
               </div>
             </div>           
-          </div>
-            <div class="row hide">
-                <div class="col-md-12 stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Company Details</p>
-                            <div class="table-responsive">
-                                <table id="recent-purchases-listing" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Location</th>
-                                            <th>Size</th>
-                                            <th>Date</th>                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Jeremy Ortega</td>
-                                            <td>Levelled up</td>
-                                            <td>Catalinaborough</td>
-                                            <td>790</td>
-                                            <td>06 Jan 2018</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>Alvin Fisher</td>
-                                            <td>Ui design completed</td>
-                                            <td>East Mayra</td>
-                                            <td>23230</td>
-                                            <td>18 Jul 2018</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>Emily Cunningham</td>
-                                            <td>support</td>
-                                            <td>Makennaton</td>
-                                            <td>939</td>
-                                            <td>16 Jul 2018</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>Minnie Farmer</td>
-                                            <td>support</td>
-                                            <td>Agustinaborough</td>
-                                            <td>30</td>
-                                            <td>30 Apr 2018</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>Betty Hunt</td>
-                                            <td>Ui design not completed</td>
-                                            <td>Lake Sandrafort</td>
-                                            <td>571</td>
-                                            <td>25 Jun 2018</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>Myrtie Lambert</td>
-                                            <td>Ui design completed</td>
-                                            <td>Cassinbury</td>
-                                            <td>36</td>
-                                            <td>05 Nov 2018</td>                                           
-                                        </tr>                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>            
           </div>
       </div>
     <div class="modal fade" id="ShipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -249,7 +205,8 @@
                                         <th>Ship ID</th>
                                         <th>Name</th>
                                         <th>Type</th>
-                                        <th>Contact</th>                                       
+                                        <th>IMO No</th>    
+                                        <th>DWT</th>                                   
                                     </tr>
                                 </thead>
                                 <tbody>

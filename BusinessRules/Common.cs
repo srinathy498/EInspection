@@ -77,10 +77,10 @@ namespace BusinessRules
             msg = DataObj.CompanyDetails(CompanyName, Size, Location, Address, Status);
             return msg;
         }
-        public string ShipDetails(string ShipCode, string ShipType, string Name, int ManagerId, string ContactNo, string Address, string CreatedBy, string Discription, string City)
+        public string ShipDetails(string ShipCode, string ShipType, string Name, int ManagerId, string ContactNo, string Address, string CreatedBy, string Discription, string City,string IMONo,string DWT)
         {
             string msg;
-            msg = DataObj.ShipDetails(ShipCode, ShipType, Name, ManagerId, ContactNo, Address, CreatedBy, Discription, City);
+            msg = DataObj.ShipDetails(ShipCode, ShipType, Name, ManagerId, ContactNo, Address, CreatedBy, Discription, City,IMONo,DWT);
             return msg;
         }
         public string UserComShpDetails(string UserId, int CompanyId, string ShipId, string Status)

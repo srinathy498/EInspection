@@ -71,8 +71,9 @@
           <div class="row">            
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
+                  <h4 class="card-title">USER</h4>
                 <div class="card-body">
-                  <h4 class="card-title">USER</h4> <br />                 
+                   <br />                 
                     <label class="col-form-label text-danger" id="lblerror" runat="server"></label>
                      <div class="row">
                       <div class="col-md-6">

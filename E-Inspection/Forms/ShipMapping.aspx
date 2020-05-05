@@ -93,8 +93,9 @@
           <div class="row">            
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
+                  <h4 class="card-title">SHIP Mapping</h4>
                 <div class="card-body">
-                  <h4 class="card-title">SHIP Mapping</h4> <br />                 
+                   <br />                 
                     <label class="col-form-label text-danger" id="lblerror" runat="server"></label>                    
                     <div class="row" style="display:none;">
                     <div class="col-md-12 stretch-card">
@@ -156,7 +157,18 @@
                           </div>
                         </div>
                       </div>                      
-                    </div>    
+                    </div> 
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Company</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" id="ddlCompany" runat="server" required="required">                                                            
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                        </div>   
                     <div class="row">
                          <div class="col-md-8 offset-md-4">   
                     <asp:Button Text="Submit" class="btn btn-primary mr-2" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" />

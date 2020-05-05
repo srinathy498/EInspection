@@ -75,7 +75,7 @@
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
           <a class="navbar-brand brand-logo" style="color:#D4DBE8 !important;" href="<%= Page.ResolveClientUrl("~/Home.aspx") %>">E-Inspection</a>
             <%--<img src="<%= Page.ResolveClientUrl("~/images/logo.svg") %>" alt="logo"/>--%>
-          <a class="navbar-brand brand-logo-mini" style="color:#D4DBE8 !important;" href="<%= Page.ResolveClientUrl("~/Home.aspx") %>">E-Inspection</a>
+          <a class="navbar-brand brand-logo-mini" style="color:#D4DBE8 !important;" href="<%= Page.ResolveClientUrl("~/Home.aspx") %>">EIN</a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-sort-variant"></span>
           </button>
@@ -277,7 +277,8 @@
                           <li class="nav-item clsAdmin"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/ShipMaster.aspx") %>"> Ship Master </a></li>                         
                           <li class="nav-item clsAdmin"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/User.aspx") %>"> User </a></li> 
                           <li class="nav-item clsUser"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/ShipFiles.aspx") %>"> Ship Files </a></li> 
-                          <li class="nav-item clsAdmin"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/ShipMapping.aspx") %>"> Ship Mapping </a></li>                              
+                          <li class="nav-item clsAdmin"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/ShipMapping.aspx") %>"> Ship Mapping </a></li>
+                          <li class="nav-item clsAdmin"> <a class="nav-link" href="<%= Page.ResolveClientUrl("~/Forms/ShipManager.aspx") %>"> Ship Manager </a></li>                                
                       </ul>
                   </div>
               </li>

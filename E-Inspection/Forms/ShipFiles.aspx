@@ -97,8 +97,9 @@
           <div class="row">            
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
+                  <h4 class="card-title">SHIP Files</h4>
                 <div class="card-body">
-                  <h4 class="card-title">SHIP Files</h4> <br />                 
+                   <br />                 
                     <label class="col-form-label text-danger" id="lblerror" runat="server"></label> 
                     
                     <div class="row">
@@ -119,12 +120,19 @@
                           <label class="col-sm-3 col-form-label">Type of Files</label>
                           <div class="col-sm-9">
                          <select class="form-control" id="ddlTypeFiles" runat="server" required="required"> 
-                        <option value="Certificates">Certificates</option>   
-                        <option value="SMSExtracts">SMS Extracts</option> 
-                        <option value="Book/ManualExtracts">Book/Manual Extracts</option>  
-                        <option value="Documents">Documents</option> 
-                        <option value="e-documents">e-documents</option>                                                          
-                        </select>
+                        <option value="Officer/Crew certificate">Officer/Crew certificate</option> 
+                        <option value="Training records">Training records</option>
+                        <option value="Ship Certificates">Ship Certificates</option>
+                        <option value="Test Records">Test Records</option>
+                        <option value="Procedure">Procedure</option>
+                        <option value="Maintenance records">Maintenance records</option>
+                        <option value="Ship Test Records">Ship Test Records</option>
+                        <option value="E-Docs">E-Docs</option>
+                        <option value="Photos">Photos</option>
+                        <option value="Document Exceprt">Document Exceprt</option>
+                        <option value="Video">Video</option>
+                        <option value="Charts">Charts</option>
+                        <option value="Voice Records">Voice Records</option></select>
                           </div>
                         </div>
                       </div>

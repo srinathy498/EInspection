@@ -11,27 +11,27 @@ using System.Web.UI.WebControls;
 
 namespace E_Inspection.Forms
 {
-    public partial class ShipMaster : System.Web.UI.Page
+    public partial class ShipManager : System.Web.UI.Page
     {
         BusinessRules.Common blobj = new BusinessRules.Common();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GetManagers();
+                GetShips();
             }
         }
         
-        public void GetManagers()
+        public void GetShips()
         {
             
-            System.Data.DataSet ds = blobj.GeManager();
+            System.Data.DataSet ds = blobj.GetShipDetails();
             if (ds.Tables[0].Rows.Count > 0)
             {
-                ddlManager.DataSource = ds;
-                ddlManager.DataValueField = "Value";                
-                ddlManager.DataTextField = "Text";
-                ddlManager.DataBind();
+                ddlShip.DataSource = ds;
+                ddlShip.DataValueField = "ShipId";                
+                ddlShip.DataTextField = "Name";
+                ddlShip.DataBind();
             }
         }
 
@@ -45,8 +45,8 @@ namespace E_Inspection.Forms
             }
             else
             {
-                msg = blobj.ShipDetails("", ddlshiptype.Value, txtName.Value, Convert.ToInt32(ddlManager.Value), txtContact.Value, txtAddress.Value, Session["UserId"].ToString(), txtDiscription.Value, txtCity.Value,txtIMONo.Value,txtDWT.Value);
-                System.IO.Directory.CreateDirectory(MapPath("..\\ShipFiles\\" +txtName.Value));
+              //  msg = blobj.ShipDetails("", ddlshiptype.Value, txtName.Value, Convert.ToInt32(ddlManager.Value), txtContact.Value, txtAddress.Value, Session["UserId"].ToString(), txtDiscription.Value, txtCity.Value,txtIMONo.Value,txtDWT.Value);
+               // System.IO.Directory.CreateDirectory(MapPath("..\\ShipFiles\\" +txtName.Value));
                 
             }
             if (Convert.ToInt32(msg) >= 1)

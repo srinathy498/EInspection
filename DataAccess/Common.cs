@@ -372,11 +372,11 @@ namespace DataAccess
                 msg = ExecuteQuery(Cmdstr, para);           
             return msg;
         }
-        public string ShipDetails(string ShipCode, string ShipType, string Name, int ManagerId, string ContactNo,string Address,string CreatedBy,string Discription,string City)
+        public string ShipDetails(string ShipCode, string ShipType, string Name, int ManagerId, string ContactNo,string Address,string CreatedBy,string Discription,string City,string IMONo,string DWT)
         {
             string msg = string.Empty, Cmdstr, Userid = string.Empty;
 
-            SqlParameter[] para = new SqlParameter[11];
+            SqlParameter[] para = new SqlParameter[13];
             para[0] = CreateSQLParameter("ShipType", SqlDbType.VarChar, ShipType);
             para[1] = CreateSQLParameter("ShipCode", SqlDbType.VarChar, ShipCode);
             para[2] = CreateSQLParameter("Name", SqlDbType.VarChar, Name);
@@ -387,9 +387,11 @@ namespace DataAccess
             para[7] = CreateSQLParameter("CreatedBy", SqlDbType.VarChar, CreatedBy);
             para[8] = CreateSQLParameter("Discription", SqlDbType.VarChar, Discription);
             para[9] = CreateSQLParameter("City", SqlDbType.VarChar, City);
-            para[10] = CreateSQLParameter("CreatedDate", SqlDbType.Date, DateTime.Now);            
-            Cmdstr = "Insert into tblShipMaster(ShipCode,Type,Name,ContactNumber,Address,SMangerId,CreatedBy,CreatedDate,Status,Discription,City) VALUES" +
-                "(@ShipCode, @ShipType,@Name,@ContactNo ,@Address,@ManagerId,@CreatedBy,@CreatedDate,@Status,@Discription,@City); SELECT SCOPE_IDENTITY()";
+            para[10] = CreateSQLParameter("CreatedDate", SqlDbType.Date, DateTime.Now);
+            para[11] = CreateSQLParameter("IMONo", SqlDbType.VarChar, IMONo);
+            para[12] = CreateSQLParameter("DWT", SqlDbType.VarChar, DWT);
+            Cmdstr = "Insert into tblShipMaster(ShipCode,Type,Name,ContactNumber,Address,SMangerId,CreatedBy,CreatedDate,Status,Discription,City,IMONo,DWT) VALUES" +
+                "(@ShipCode, @ShipType,@Name,@ContactNo ,@Address,@ManagerId,@CreatedBy,@CreatedDate,@Status,@Discription,@City,@IMONo,@DWT); SELECT SCOPE_IDENTITY()";
             msg = GetScalar(Cmdstr, para);           
             return msg;
         }
