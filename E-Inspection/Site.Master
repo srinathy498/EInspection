@@ -24,6 +24,7 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="<%= Page.ResolveClientUrl("~/images/favicon.png") %>" />
   <link href="<%= Page.ResolveClientUrl("~/css/sweetalert.min.css") %>" rel="stylesheet" />
+  <link href="<%= Page.ResolveClientUrl("~/css/responsive-table.css") %>" rel="stylesheet" />
 <!-- plugins:js -->
   <script src="<%= Page.ResolveClientUrl("~/vendors/base/vendor.bundle.base.js") %>"></script>
   <!-- endinject -->
@@ -35,7 +36,7 @@
   <!-- inject:js -->
   <script src="<%= Page.ResolveClientUrl("~/js/off-canvas.js") %>"></script>
   <script src="<%= Page.ResolveClientUrl("~/js/hoverable-collapse.js") %>"></script>
- <%-- <script src="<%= Page.ResolveClientUrl("~/js/template.js") %>"></script>--%>
+  <script src="<%= Page.ResolveClientUrl("~/js/template.js") %>"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="<%= Page.ResolveClientUrl("~/js/dashboard.js") %>"></script>
@@ -62,6 +63,17 @@
             }
 
         });
+        function show(id) {           
+            $(".tbldiv").hide();
+            $('.lbldiv').hide();
+            $('#' + id).show();
+            $('#lbl' + id).show();
+
+        }
+        function OpenViqForm()
+        {
+            window.location.href="<%= Page.ResolveClientUrl("~/Forms/VIQForm.aspx") %>"
+        }
     </script>
 </head>
 <body>
@@ -224,13 +236,13 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#authone"  aria-expanded="false" aria-controls="authone">
                       <i class="mdi mdi-account menu-icon"></i>
-                      <span class="menu-title">Informatio</span>
+                     <span class="menu-title" onclick="OpenViqForm();">Informatio</span>
                       <i class="menu-arrow"></i>
                   </a>
                   <div class="collapse" id="authone">
                       <ul class="nav flex-column sub-menu">
-                          <li class="nav-item"> <a class="nav-link" href="pages/Forms/VIQForm.html" > 1 General information </a></li>
-                          <li class="nav-item"> <a class="nav-link" href="pages/Forms/VIQForm.html" > 2 Additional comments</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="javascript:void(0);" onclick="show('tbl1')" > 1 General information </a></li>
+                          <li class="nav-item"> <a class="nav-link" href="javascript:void(0);" onclick="show('tbl2')" > 2 Additional comments</a></li>
                       </ul>
                   </div>
               </li>

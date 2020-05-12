@@ -251,6 +251,7 @@
     <Content Include="Forms\ShipMapping.aspx" />
     <Content Include="Forms\ShipFiles.aspx" />
     <Content Include="Forms\ShipManager.aspx" />
+    <Content Include="Forms\VIQForm.aspx" />
     <Content Include="Forms\User.aspx" />
     <Content Include="Forms\ShipMaster.aspx" />
     <Content Include="fonts\.DS_Store" />
@@ -2019,6 +2020,13 @@
     </Compile>
     <Compile Include="Forms\ShipManager.aspx.designer.cs">
       <DependentUpon>ShipManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VIQForm.aspx.cs">
+      <DependentUpon>VIQForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VIQForm.aspx.designer.cs">
+      <DependentUpon>VIQForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
